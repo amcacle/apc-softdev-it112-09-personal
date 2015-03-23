@@ -190,4 +190,18 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+	
+	public static function isUserAdmin($username)
+{
+      if (static::findOne(['username' => $username, 'role' => self::ROLE_ADMIN])){
+ 
+             return true;
+      } else {
+ 
+             return false;
+      }
+ 
+}
+ 
+}
 }
